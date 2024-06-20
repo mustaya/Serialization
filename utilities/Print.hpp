@@ -8,21 +8,21 @@
 
 namespace utilities {
 
-    template<typename... Args>
     class Print {
 
     public:
         /**
          * @brief Default Constructor.
          */
-        Print() = delete;
+        Print() = default;
 
         /**
          * @brief Default Destructor.
          */
         ~Print() = default;
 
-        Print(Args... args) {
+        template<typename... Args>
+        void print(Args... args) {
 
             ((std::cout << args), ...);
         }
